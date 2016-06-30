@@ -3,6 +3,8 @@ Modal window which embed Components
 
 # Example:
 
+```typescript
+
 @Component({
     selector: "my-caller",
     template: "<sky-modal></sky-modal>", // embed the component on your html
@@ -37,5 +39,7 @@ export class MyPopup{
         this.modalService.response(res); //send response to the caller
     }
 }
+
+```
 Status API Training Shop Blog About
 © 2016 GitHub, Inc. Terms Privacy Se
