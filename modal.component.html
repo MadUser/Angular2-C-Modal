@@ -1,0 +1,9 @@
+<div class="modal" [style.display]="visible? 'block' : 'none'">
+    <div draggable="true"  class="modal-content">
+        <header>
+            <div class="header-title"></div>
+            <div class="close-button" (click)="hide()">x</div>
+        </header>
+        <main #target ></main>
+    </div>
+</div>
