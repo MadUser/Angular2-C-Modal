@@ -13,7 +13,7 @@ export class MyCaller {
     }
 
     popupModal() {
-        this.skyModal.show(SomeComponent, "params", null) // call the modal dialog with (component, params, config)
+        this.skyModal.show(MyPopup, "some string to display", null) // call the modal dialog with (component, params, config)
             .subscribe(response => console.log("return value: " + response)); // get response from the modal on close.
     }
 }
