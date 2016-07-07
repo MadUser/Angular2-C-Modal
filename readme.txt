@@ -26,7 +26,7 @@ export class MyCaller {
 
 export class MyPopup{
     constructor(private modalService: ModalService) {
-    if(this.request != null) //thr request is injected to the component
+    if(this.request != null) //the request is injected to the component
         console.log("we have a request: "+this.request);
     }
 
