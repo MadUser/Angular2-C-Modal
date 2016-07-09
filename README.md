@@ -14,7 +14,8 @@ The module supports:
 
 @Component({
     selector: "my-caller",
-    template: "<sky-modal></sky-modal>", // embed the component on your html
+    template: `<button (click)="popupModal()">click me</button>
+    <sky-modal></sky-modal>`, // embed the component on html
     directives: [SkyModal]
 })
 
@@ -25,7 +26,7 @@ export class MyCaller {
     }
 
     popupModal() {
-        this.skyModal.show(SomeComponent, "params", null) // call the modal dialog with (component, params, config)
+        this.skyModal.show(MyPopup, {}, {}) // call the modal dialog with (component, params, config)
             .subscribe(response => console.log("return value: " + response)); // get response from the modal on close.
     }
 }
@@ -33,17 +34,17 @@ export class MyCaller {
 
 @Component({
     selector: 'my-popup',
-    templateUrl: '<div>Hello world</div>',
+    templateUrl: '<div>This is the child component</div>',
 })
 
 export class MyPopup{
     constructor(private modalService: ModalService) {
-    if(this.request != null) //thr request is injected to the component
+    if(this.request != null) //the request is injected to the component.
         console.log("we have a request: "+this.request);
     }
 
     close(res) {
-        this.modalService.response(res); //send response to the caller
+        this.modalService.response(res); //send response to the parent caller
     }
 }
 
