@@ -12,6 +12,5 @@ export class ModalService {
     // service message command
     response(response: any) {
         this.responseSource.next(response);
-        this.responseSource.complete();
     }
 }
