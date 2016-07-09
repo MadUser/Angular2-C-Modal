@@ -2,10 +2,11 @@
 There are several modal dialogs for html templates, for quick alert and confirm dialogs,
 This is not the purpose of this module.
 This module is only for opening modal dialog with a seperate inner component to show.
+
 The module supports:
- passing request object from the parent to the modal dialog.
- open stream of data between to modal dialog and the parent caller.
- open as many dialogs as you like, nested or flat.
+- passing request object from the parent to the modal dialog.
+- open stream of data between to modal dialog and the parent caller.
+- open as many dialogs as you like, nested or flat.
  
 # Example:
 
