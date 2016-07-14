@@ -4,7 +4,7 @@ import {
 } from "@angular/core";
 
 import {ModalService} from './modal.service';
-import {Subject} from "rxjs/Rx";
+import {Subject, Observable} from "rxjs/Rx";
 
 @Component({
     selector: "sky-modal",
@@ -26,9 +26,8 @@ export class SkyModal implements OnDestroy {
     }
 
     constructor(private resolver: ComponentResolver, private modalService: ModalService) {
-        modalService.response$.subscribe(obj => {
+        modalService.getObservable().subscribe(obj => {
             this.subject.next(obj); // return result from modal component to parent;
-            this.subject.complete();
             this.hide();
         });
     }
@@ -47,13 +46,17 @@ export class SkyModal implements OnDestroy {
     ngOnDestroy() {
         if (this.cmpRef)
             this.cmpRef.destroy();
+        if (this.subject) {
+            this.subject.complete();
+            this.subject.unsubscribe();
+        }
     }
 
-    show(component, request, config): Subject<any> {
+    show(component, request, config): Observable<any> {
         this.resolveComponent(component, request);
         this.visible = true;
         this.subject = new Subject(); // new observable
-        return this.subject;
+        return this.subject.asObservable();
     }
 
     hide() {
