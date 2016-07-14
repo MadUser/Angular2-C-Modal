@@ -5,8 +5,8 @@ This module is only for opening modal dialog with a seperate inner component.
 
 The module supports:
 - passing request object from the parent to the modal dialog.
-- open stream of data between to modal dialog and the parent caller.
-- open as many dialogs as you like, nested or flat.
+- passing response from the modal dialog to the parent caller.
+- open as many dialogs as needed, nested or flat.
  
 # Example:
 
