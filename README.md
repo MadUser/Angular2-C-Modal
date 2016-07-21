@@ -37,12 +37,12 @@ export class MyCaller {
     templateUrl: '<div>This is the child component</div>',
 })
 
-export class MyPopup{
-    constructor(private modalService: ModalService) {
-    if(this.request != null) //the request is injected to the component.
-        console.log("we have a request: "+this.request);
+export class MyPopup implements  OnInit{
+    constructor(private modalService: ModalService) {}
+    ngOnInit() {
+       if(this.request != null) //the request is injected to the component.
+       console.log("we have a request: "+this.request);
     }
-
     close(res) {
         this.modalService.response(res); //send response to the parent caller
     }

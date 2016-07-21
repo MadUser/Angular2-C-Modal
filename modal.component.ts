@@ -28,7 +28,6 @@ export class SkyModal implements OnDestroy {
     constructor(private resolver: ComponentResolver, private modalService: ModalService) {
         modalService.getObservable().subscribe(obj => {
             this.subject.next(obj); // return result from modal component to parent;
-            this.hide();
         });
     }
 
@@ -61,5 +60,6 @@ export class SkyModal implements OnDestroy {
 
     hide() {
         this.visible = false;
+        this.cmpRef.instance.close();
     }
 }
