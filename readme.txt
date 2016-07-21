@@ -30,7 +30,8 @@ export class MyPopup{
         console.log("we have a request: "+this.request);
     }
 
-    close(res) {
+    close() {
+        let res = "anything"
         this.modalService.response(res); //send response to the caller
     }
 }
